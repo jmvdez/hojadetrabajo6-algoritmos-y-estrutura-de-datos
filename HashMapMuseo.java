@@ -8,18 +8,15 @@ public class HashMapMuseo {
     }
 
     // Funcion HASH
-    public int generarHash(String clave) {
+   public int generarHash(String clave) {
 
         int hash = 0;
 
         for (int i = 0; i < clave.length(); i++) {
-
-            char caracter = clave.charAt(i);
-
-            hash += caracter * (i + 1);
+            hash = 31 * hash + clave.charAt(i);
         }
 
-        return hash % tamaño;
+    return Math.abs(hash) % tamaño;
     }
 
     // INSERTAR
